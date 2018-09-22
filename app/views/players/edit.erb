@@ -1,0 +1,29 @@
+<h1>Update Player</h1>
+
+  <form action="/players/<%=@player.id%>" method="POST">
+  <!-- <input id="hidden" type="hidden" name="_method" value="patch"> -->
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="player[player_name]" id="player_name" value="<%=@player.player_name%>">
+
+  <br></br>
+  <label>Choose an existing team:</label>
+
+  <br></br>
+
+  <%Team.all.each do |team|%>
+  <input type="radio" name="player[team_id]" id="<%= team.id%>" value="<%=team.id%>" <%='checked' if @player.team.team_name == team.team_name %>><%=team.team_name%></input>
+<%end%>
+
+
+  <br></br>
+
+  <label>and/or, create a new team:</label>
+    <br></br>
+  <label>Team Name:</label>
+    <input  type="text" name="team[team_name]" id="team_name"></input>
+  <br></br>
+  <input type="submit" value="Update Player Team">
+</form>

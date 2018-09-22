@@ -1,0 +1,22 @@
+<div class="container">
+  <h3><%= @team.team_name %></h3>
+
+<h4>Current Players:</h4>
+<ul>
+  <% @team.players.each do |player| %>
+  <a href="/players/<%= player.id %>"><%= player.player_name %></a><br>
+<% end %>
+</ul>
+
+   <br>
+  Find Players: <a href="/players/new"><input type="submit" id="submit" value="Enter"></a>
+    <br></br>
+  Drop Players: <a href="/players/"><input type="submit" id="submit" value="Enter"></a>
+ <br></br>
+  <nav class="clearfix">
+    <a href="/home">Team Homepage</a>
+    <br>
+    <a href="/teams/new">Create New Team</a>
+    <br>
+    <a href="/logout">Logout</a>
+  </nav>

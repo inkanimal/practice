@@ -1,0 +1,14 @@
+<div class="container">
+  <h3>Edit Team: <%= @team.team_name %>
+  <div id="single_team"> </div>
+  </h3>
+  <!--<nav class="clearfix">-->
+    <a href="/home">Team Homepage</a>
+    <br>
+    <a href="/teams/new">Create New Team</a>
+    <br>
+    <a href="/logout">Logout</a>
+  <!--</nav>-->
+
+  <form action="/teams/<%= @team.id %>" method="post" id="edit_team">
+    <input type="hidden" name="_method" value="patch">
