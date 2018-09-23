@@ -6,4 +6,4 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
-run PlayersController
+use PlayersController

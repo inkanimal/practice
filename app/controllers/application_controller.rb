@@ -94,11 +94,11 @@ class ApplicationController < Sinatra::Base
 
   post '/home' do
     if logged_in?
-     if params[:team_name].empty?
+     if params[:name].empty?
        redirect '/teams/new'
      end
       @user = current_user
-      new_team = Team.new(team_name: params[:team_name], user: current_user)
+      new_team = Team.new(name: params[:name], user: current_user)
      if new_team.save
        redirect  '/home'
      end
@@ -130,12 +130,12 @@ class ApplicationController < Sinatra::Base
  end
 
  patch '/teams/:id' do
-   if params[:team_name].empty?
+   if params[:name].empty?
      redirect  "/teams/#{params[:id]}/edit"
    end
     @team = Team.find_by_id(params[:id])
     @user = current_user
-   if @team.update(team_name: params[:team_name])
+   if @team.update(name: params[:name])
 
      redirect  "/teams/#{@team.id}"
    end

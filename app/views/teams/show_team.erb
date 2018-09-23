@@ -1,17 +1,17 @@
 <div class="container">
-  <h3><%= @team.team_name %></h3>
+  <h3><%= @team.name %></h3>
 
 <h4>Current Players:</h4>
 <ul>
   <% @team.players.each do |player| %>
-  <a href="/players/<%= player.id %>"><%= player.player_name %></a><br>
+  <a href="/players/<%= player.id %>"><%= player.name %></a><br>
 <% end %>
 </ul>
 
    <br>
   Find Players: <a href="/players/new"><input type="submit" id="submit" value="Enter"></a>
     <br></br>
-  Drop Players: <a href="/players/"><input type="submit" id="submit" value="Enter"></a>
+  Player List: <a href="/players"><input type="submit" id="submit" value="Enter"></a>
  <br></br>
   <nav class="clearfix">
     <a href="/home">Team Homepage</a>

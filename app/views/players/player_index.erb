@@ -1,6 +1,10 @@
 <h1>Fantasy Baseball Player List</h1>
 <ul id="player_index">
-  <% @players.each do |player| %>
-   <%= player.player_name %><br />
-   <%= player.position %> <br />
-   <%end%>
+<% @players.each do |player| %>
+  <a href="/players/<%= player.id %>"><%= player.name %></a><br>
+<% end %>
+   <br>
+   <%Position.all.each do |position|%>
+    <input type="checkbox" name="player[position_ids][]" value="<%=position.id%>"
+    id="position_<%=position.id%>"><%=position.name%></input>
+  <%end%>

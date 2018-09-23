@@ -1,34 +1,47 @@
-<h1>Create a new Player</h1>
+
+
+<h1>Create Player</h1>
 
 <form action="/players" method="POST">
-   <label>Player Name:</label>
-
-    <br>
-
-  <input type="text" name="player[player_name]" id="player_name">
-  <br>
+  <label>Name:</label>
+   <input type="text" name="player[name]" id="player_name">
 
   <br></br>
 
-  <label>Choose an existing team:</label>
+  <label>Positions</label>
 
   <br></br>
 
-  <%@teams.each do |team|%>
-    <input type="checkbox" name="player[team_id]" value="<%=team.id%>" id="<%=team.id%>">
-    <%=team.team_name%></input>
+  <%Position.all.each do |position|%>
+    <input type="checkbox" name="player[position_ids][]" value="<%=position.id%>" id="position_<%=position.id%>"><%=position.name%></input>
   <%end%>
 
   <br></br>
 
-  <label>and/or, create a new owner:</label>
+  <label>Create New Title:</label>
     <br></br>
-   <label>name:</label>
-   <input  type="text" name="team[team_name]" id="team_name"></input>
+  # <label>name:</label>
+   <input  type="text" name="title[name]" id="new_title"></input>
 
   <br></br>
 
-  <input type="submit" value="Create Player">
+   <label>Team</label>
+
+  <br></br>
+
+  <%Team.all.each do |team|%>
+    <input type="checkbox" name="player[team_ids][]" value="<%=team.id%>" id="team_<%=team.id%>"><%=team.name%></input>
+  <%end%>
+
+  <br><br>
+
+   <label>Create New Landmark:</label>
+    <br></br>
+  <label>Name:</label>
+   <input  type="text" name="team[name]" id="new_team"></input>
+  <!--<label>Year:</label> -->
+  <!-- <input  type="text" name="landmark[year]"></input>-->
+  <input type="submit" value="Create New player">
 
 
 </form>

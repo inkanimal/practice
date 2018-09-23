@@ -1,8 +1,20 @@
 
-<h3>Team:
-      <!-- <a href="/show_team"> -->
-  <%=@player.team.team_name%></a></h3>
-
-<h4>Player: <%=@player.player_name%></h4>
+<h1><%=@player.name%></h1>
+<br><br>
+<h4>Positions:</h4>
+<ul>
+  <%@player.positions.each do |position|%>
+  <li><%=position.name%></li>
+  <%end%>
+</ul>
+<br><br>
+<h4>Team:</h4>
+<ul>
+  <%@player.teams.each do |team|%>
+  <li><%=team.name%></li>
+  <%end%>
+</ul>
+<br><br>
+<a href="/players/<%= @player.id %>/edit"><input type="button" value="Edit"></a>
 <br>
 <a href="/home">Homepage</a>
