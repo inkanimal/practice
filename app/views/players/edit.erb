@@ -6,7 +6,7 @@ h1>Edit - <%= @player.name %></h1>
   <label>Positions</label><br>
   <em>Choose from an Existing Position</em><br>
   <%Position.all.each do |position| %>
-    <input type="checkbox" name="player[position_ids][]" value="<%= position.id %>" id="position_<%= position.id %>" <%='checked' if @player.positions.include?(position) %>>
+    <input type="checkbox" name="player[position_ids][]" value="<%= position.id %>" id="position_<%= position.id %>" >
     <%= position.name %>
     <br>
   <% end %><br>
@@ -15,7 +15,7 @@ h1>Edit - <%= @player.name %></h1>
   <label>Team:</label><br>
   <em>Choose from an Existing Team</em><br>
   <% Team.all.each do |team| %>
-    <input type="checkbox" name="player[team_ids][]" value="<%= team.id %>" id="team_<%= team.id %>" <%='checked' if @player.teams.include?(team) %>>
+    <input type="checkbox" name="player[team_ids][]" value="<%= team.id %>" id="team_<%= team.id %>" >
     <%= team.name %>
     <br>
   <% end %><br>
